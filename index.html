@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jogos</title>
+  <link rel="shortcut icon" href="img/logo-ofc.ico" type="image/x-icon">
   <style>
     body {
       margin: 0;
@@ -22,8 +23,9 @@
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 40px;
+      margin: -100px 0 100px;
       text-align: center;
+      animation: rainbowShadow 5s ease-in infinite;
     }
 
     .jogos_box {
@@ -106,13 +108,69 @@
       }
     }
 
+    @keyframes rainbowShadow {
+      0% {
+        text-shadow:
+          2px 2px red,
+          -2px -2px orange,
+          2px -2px yellow,
+          -2px 2px green,
+          0 2px blue,
+          2px 0 indigo,
+          -2px 0 violet;
+      }
+
+      25% {
+        text-shadow:
+          -2px -2px red,
+          2px 2px orange,
+          -2px 2px yellow,
+          2px -2px green,
+          0 -2px blue,
+          -2px 0 indigo,
+          2px 0 violet;
+      }
+
+      50% {
+        text-shadow:
+          2px -2px red,
+          -2px 2px orange,
+          2px 2px yellow,
+          -2px -2px green,
+          0 2px blue,
+          2px 0 indigo,
+          -2px 0 violet;
+      }
+
+      75% {
+        text-shadow:
+          -2px 2px red,
+          2px -2px orange,
+          -2px -2px yellow,
+          2px 2px green,
+          0 -2px blue,
+          -2px 0 indigo,
+          2px 0 violet;
+      }
+
+      100% {
+        text-shadow:
+          2px 2px red,
+          -2px -2px orange,
+          2px -2px yellow,
+          -2px 2px green,
+          0 2px blue,
+          2px 0 indigo,
+          -2px 0 violet;
+      }
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
-        margin: -100px 0 100px;
       }
 
-      .jogo-title{
+      .jogo-title {
         font-size: .9rem;
         width: 100px;
       }
@@ -136,10 +194,10 @@
     </div>
 
     <div class="jogo">
-      <a href="https://janpy011.github.io/jogoCobrinha/" target="_blank" class="game-link">
-        <img src="img/cobra.png" alt="Jogo da Cobrinha" />
+      <a href="https://janpy011.github.io/slime/" target="_blank" class="game-link">
+        <img src="img/slime.png" alt="Jogo do slime" />
       </a>
-      <div class="jogo-title">Jogo da Cobrinha</div>
+      <div class="jogo-title">Jogo do Slime</div>
     </div>
   </div>
 
