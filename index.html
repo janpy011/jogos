@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .jogos_box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+
+    .jogo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .game-link {
+      display: inline-block;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .game-link:hover {
+      transform: scale(1.05);
+    }
+
+    .game-link img {
+      width: 100px;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .jogo-title {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 30, 47, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .loader-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #00bfff;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        margin: -100px 0 100px;
+      }
+
+      .jogo-title{
+        font-size: .9rem;
+        width: 100px;
+      }
+
+      .game-link img {
+        width: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Jogos</h1>
+
+  <div class="jogos_box">
+    <div class="jogo">
+      <a href="https://janpy011.github.io/jogoCobrinha/" target="_blank" class="game-link">
+        <img src="img/cobra.png" alt="Jogo da Cobrinha" />
+      </a>
+      <div class="jogo-title">Jogo da Cobrinha</div>
+    </div>
+
+    <div class="jogo">
+      <a href="https://janpy011.github.io/jogoCobrinha/" target="_blank" class="game-link">
+        <img src="img/cobra.png" alt="Jogo da Cobrinha" />
+      </a>
+      <div class="jogo-title">Jogo da Cobrinha</div>
+    </div>
+  </div>
+
+  <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader"></div>
+  </div>
+
+  <script>
+    const gameLinks = document.querySelectorAll('.game-link');
+    const loaderOverlay = document.getElementById('loaderOverlay');
+
+    gameLinks.forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        loaderOverlay.classList.add('active');
+
+        setTimeout(() => {
+          window.open(this.href, '_blank');
+          loaderOverlay.classList.remove('active');
+        }, 1300);
+      });
+    });
+  </script>
+</body>
+
+</html>
